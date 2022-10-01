@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1></h1>
+<form method="POST" action="/update/{{blog.id}}">
+    {% csrf_token %}
+    
+        <input type="text" name="title" value="{{blog.title}}" style="width: 200; height: 30;text-align: center; ">
+       
+        <input type="submit" value="Update" style="border-spacing: 10px 50px;">       
+        <img src="{{ blog.image.url}}" alt="connect" style="max-height:300px">  
+</form>
+<br>
+<a href="{% url 'listing' %}">All Blogs</a>
+{% endblock content %}

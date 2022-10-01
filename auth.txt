@@ -1,0 +1,7 @@
+# Django provides tools for both authentication and authorization
+# Django view authorization is typically done with decorators
+# Use HttpRequest and HttpRequest.user.objects
+# Authenticate and authorize users 
+# Diffrentiate between regular, staff, and admin users
+# Secure a view with the @login_required decorators
+# Restrict a view to different roles with the @user_passes_test decorators

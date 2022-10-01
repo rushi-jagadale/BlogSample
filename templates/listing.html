@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="text-align:center;">All Blogs</h1>
+<ul  style="text-align:center;">
+{% for blog in blogs %}
+   <h2> <li  style="text-align:center;"><a href="{% url 'view_blog' blog.id %}" style="text-decoration-line: none;">{{blog.title}}</a></li></h2>
+  <br>  <li  style="text-align:center;"><a href="{% url 'delete' blog.id %}"  style="background-color: rgb(238, 149, 149); border: 2px solid; text-decoration: none;">Delete</a>   <a href="{% url 'view_blog' blog.id %}" style="background-color:#cfd4e2; border: 2px solid; text-decoration: none;">Update</a></li>
+    <br>
+    <hr>
+    {% endfor %}
+</ul>
+{% endblock content %}

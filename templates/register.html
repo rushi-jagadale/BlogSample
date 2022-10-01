@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+ 
+    <div class=" m-4">
+     <h3 class="alert alert-light" style="text-align: center">Create Account</h3>
+      <div class="col-lg-5 mx-auto rounded pt-4">
+        {% for message in messages %}
+        <h3 style="text-align:center "> <span style="color:red">{{message}}
+        </span></h3>
+        {% endfor %}
+        <!--  <h3 class="alert alert-light border rounded">Create Account</h3>-->
+        <form action="" method="post">
+        
+        {% csrf_token %}
+        {% if error %}
+        <div class="alert alert-danger" role="alert"> 
+        {{error}}
+        </div>
+        {% endif%}
+          <!--emial-->
+                   <!--emial-->
+          <div class="form-group">
+            <label for="" class="form-label">UserName </label>
+            <input
+              type="text"
+              name="username"
+              class="form-control"
+              id=""
+               
+              placeholder="username"
+            />
+          </div>
+          <!--emial-->
+          <div class="form-group">
+            <label for="" class="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              
+              placeholder="email@gmail.com"
+              Required
+            />
+          </div>
+          <!--emial-->
+          <div class="form-group">
+            <label for="" class="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              id=""
+              placeholder="********"
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">Confirm Password</label>
+            <input
+              type="password"
+              name="password2"
+              class="form-control"
+              id=""
+              placeholder="********"
+            />
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="btn btn-info">Create Account</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock content %}
