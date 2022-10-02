@@ -2,14 +2,41 @@
 
 {% block content %}
 <h1></h1>
-<form method="POST" action="/update/{{blog.id}}">
-    {% csrf_token %}
-    
+<form  style="margin: auto; width: 220px;" method="post" enctype="multipart/form-data">
+    {% csrf_token %}  
+    <p><label for="id_title">Title:</label> <input type="text" name="title" value="{{blog.title}}" maxlength="50" ></p>
+    {% if blog.img %}
+    <img src="{{ blog.img.url }}" width="100" height="100" alt="image here" class="prod-size">
+    {% endif %}
+    <p><label for="id_img">Img:</label> <input type="file" name="img" ></p>
+    <button type="submit">Update Post</button>
+<br>
+    <a href="{% url 'listing' %}">All Blogs</a>
+  </form>
+
+  {% endblock content %}
+
+
+
+
+
+
+
+<!-- <form  style="margin: auto; width: 220px;" method="POST" enctype="multipart/form-data" action="/update/{{blog.id}}">
+   
+        
         <input type="text" name="title" value="{{blog.title}}" style="width: 200; height: 30;text-align: center; ">
        
-        <input type="submit" value="Update" style="border-spacing: 10px 50px;">       
-        <img src="{{ blog.image.url}}" alt="connect" style="max-height:300px">  
+        <input type="file" class="settings__background__file" name="image" enctype="multipart/form-data"  id="backgroundimage" placeholder="Upload image">
+
+        <input type="submit" value="Update" style="border-spacing: 10px 50px;">     
+<br>  
+        <a href="{% url 'listing' %}">All Blogs</a>
 </form>
 <br>
-<a href="{% url 'listing' %}">All Blogs</a>
-{% endblock content %}
+ -->
+
+
+
+
+  

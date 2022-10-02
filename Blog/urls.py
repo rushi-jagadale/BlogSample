@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views as core_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("listing/", core_views.listing, name="listing"),
-    path("view_blog/<int:blog_id>", core_views.view_blog, name="view_blog"),
-    path("update/<int:blog_id>", core_views.update,name="update"),
+    path("post/", core_views.create_post, name="post"),
+    path("edit_blog/<str:blog_id>", core_views.edit_blog, name="edit_blog"),
     path("delete/<int:blog_id>", core_views.destroy, name="delete"),
     path("register/",core_views.signup,name='register'),
     path('',core_views.login,name='login'),
     path('logout/',core_views.logout,name='logout'),
  ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
